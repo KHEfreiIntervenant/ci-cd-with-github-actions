@@ -8,7 +8,7 @@ items = []
 
 @app.route('/staging', methods=['POST'])
 def staging():
-    os.system('git pull origin staging')
+    os.system('git pull origin main')
     os.system('pip3 install -r requirements.txt')
     os.system('python -m unittest test_app.py')
     os.system('python test_integration.py')
