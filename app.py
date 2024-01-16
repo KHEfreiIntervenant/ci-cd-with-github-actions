@@ -1,11 +1,26 @@
 from flask import Flask, request, render_template, redirect, url_for
+import os
 
 app = Flask(__name__)
 
 # In-memory database
 items = []
 
-@app.route('/')
+@app.route('/staging', methods=['POST'])
+def staging():
+    os.system('git pull origin staging')
+    os.system('pip3 install -r requirements.txt')
+    os.system('python -m unittest test_app.py')
+    os.system('python test_integration.py')
+    return ('', 204)
+
+
+@app.route('/deploy', methods=['POST'])
+def deploy():
+    os.system('git pull origin main')
+    os.system('pip3 install -r requirements.txt')
+    os.system('python app.py')
+    return ('', 204)
 def index():
     return render_template('index.html', items=items)
 
