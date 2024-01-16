@@ -37,7 +37,7 @@ def add_item():
 def delete_item(index):
     if index < len(items):
         items.pop(index)
-    return redirect(url_for('index'))
+    return ('', 204)
 
 @app.route('/update/<int:index>', methods=['POST'])
 def update_item(index):
