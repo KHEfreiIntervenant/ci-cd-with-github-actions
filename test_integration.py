@@ -4,7 +4,10 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 
-class TestAppE2E(unittest.TestCase):
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+
+class app(unittest.TestCase):
     def setUp(self):
         # Launch your flask app first
         chrome_options = Options()
@@ -15,7 +18,8 @@ class TestAppE2E(unittest.TestCase):
     def test_add_and_delete_item(self):
         # you can use the driver to find elements in the page
         # example:
-        input_field = self.driver.find_element(By.NAME, 'item')
+        wait = WebDriverWait(self.driver, 10)
+        input_field = wait.until(EC.presence_of_element_located((By.NAME, 'item')))
         # this refers to the 'name="item"' attribute of the html element
         # checkout the rest of the methods in the documentation:
         # https://selenium-python.readthedocs.io/locating-elements.html
