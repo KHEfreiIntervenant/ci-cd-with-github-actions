@@ -21,6 +21,8 @@ def deploy():
     os.system('pip3 install -r requirements.txt')
     os.system('python app.py')
     return ('', 204)
+
+@app.route('/')
 def index():
     return render_template('index.html', items=items)
 
