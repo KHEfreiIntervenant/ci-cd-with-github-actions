@@ -13,7 +13,7 @@ class app(unittest.TestCase):
         chrome_options = Options()
         chrome_options.binary_location= 'C:\\Users\\Shawn\\mlinprod\\chromedriver'
         self.driver = webdriver.Chrome()
-        self.driver.get('https://ee0e-2a02-842b-c2-7001-84a7-f1a6-e06-6bb5.ngrok-free.app')
+        self.driver.get('http://localhost:5000 ')
 
     def test_add_and_delete_item(self):
         # you can use the driver to find elements in the page
