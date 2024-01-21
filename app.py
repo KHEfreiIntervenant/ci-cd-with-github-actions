@@ -16,8 +16,8 @@ def staging():
     if ref == 'refs/heads/staging':
         os.system("git pull origin staging")
         os.system("pip3 install -r requirements.txt")
-        os.system("python -m unittest test-app.py")
-        os.system("python test-endtoend-app.py")
+        os.system("python -m unittest test_app.py")
+        os.system("python test_integration.py")
         response = 'Test run successfuly'
     return response
 
