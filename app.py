@@ -69,6 +69,6 @@ def update_item(index):
 
 
 if __name__ == '__main__':
-    app.run(debug=True, **{'timeout': 300})
+    app.run(debug=True)
 
 #t
